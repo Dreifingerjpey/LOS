@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<script>
+
+</script>
+<meta charset="utf-8">
+<title>LeagueOfStalk</title>
+<link href="assets/css/LoSStyleSheet.css" rel="stylesheet" type="text/css">
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+
+</head>
+
+
+<body class="body">
+	
+	<div class="toppanel">
+		<div class="companyLogo">League of Stalk</div>
+		<div class="topLinks">
+			Champions Abilities Masteries Help
+		</div></div>
+       
+     <div class="mid">
+		<div class="logo">League of Stalk</div>
+			<form  action="SummonerLookup" class="inputData">
+				<input id="input" name="summoner" class="inputfield">
+				<br>
+				<input type="submit" class="button" value="Stalk" />
+			</form>
+	</div>
+	<img src="assets/images/skizze1.png" class="frontPic1" >
+<footer class="fußzeile">Impressum Kontakt Fehler melden</footer>	
+</body>
+
+</html>

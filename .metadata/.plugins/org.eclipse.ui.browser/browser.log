@@ -1,0 +1,21 @@
+
+Dez. 06, 2017 18:08:25.85 NEW SESSION
+Dez. 06, 2017 18:08:25.85 Unable to read VR Path Registry from C:\Users\Dreifingerjoey\AppData\Local\openvr\openvrpaths.vrpath
+Dez. 06, 2017 18:08:25.86 [Parent 8780, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Dez. 06, 2017 18:08:25.86 Unable to read VR Path Registry from C:\Users\Dreifingerjoey\AppData\Local\openvr\openvrpaths.vrpath
+Dez. 06, 2017 18:08:25.86 [Child 2264, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Dez. 06, 2017 18:08:25.86 [Parent 8780, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Dez. 06, 2017 18:08:25.87 
+Dez. 06, 2017 18:08:25.87 ###!!! [Parent][MessageChannel] Error: (msgtype=0x15008F,name=PBrowser::Msg_UpdateNativeWindowHandle) Closed channel: cannot send/recv
+Dez. 06, 2017 18:08:25.87 
+Dez. 06, 2017 18:08:25.87 
+Dez. 06, 2017 18:08:25.87 ###!!! [Parent][MessageChannel] Error: (msgtype=0x150083,name=PBrowser::Msg_Destroy) Closed channel: cannot send/recv
+Dez. 06, 2017 18:08:25.87 
+Dez. 06, 2017 18:08:25.87 
+Dez. 06, 2017 18:08:25.88 ###!!! [Child][MessageChannel] Error: (msgtype=0x150001,name=PBrowser::Msg_AsyncMessage) Closed channel: cannot send/recv
+Dez. 06, 2017 18:08:25.88 
+Dez. 06, 2017 18:08:25.88 Unable to read VR Path Registry from C:\Users\Dreifingerjoey\AppData\Local\openvr\openvrpaths.vrpath
+Dez. 06, 2017 18:08:25.88 [Child 7664, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Dez. 06, 2017 18:08:26.07 
+Dez. 06, 2017 18:08:26.07 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+Dez. 06, 2017 18:08:26.07 

@@ -1,0 +1,4 @@
+- archievement system
+- lane pressure maP
+- individuelle stärken und schwächen
+- liveticker

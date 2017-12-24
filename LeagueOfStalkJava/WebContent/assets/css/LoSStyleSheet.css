@@ -1,0 +1,315 @@
+@charset "utf-8";
+@import url("RollandinEmilie/stylesheet.css");
+
+@font-face {
+	font-family: RollandinEmilie;
+	src: url('FONTS/RollandinEmilie.ttf');
+} 
+.achievements {
+	color: rgba(255,255,255,1.00);
+	text-align: center;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-top-style: solid;
+	border-color: rgba(0,255,13,1.00);
+}
+.bestChamps{
+	text-align: center;
+	border-style: solid;
+	border-color: rgba(0,255,13,1.00);
+}
+.bestChamPictures{
+	margin-left: 15%;
+	margin-right: 15%;
+
+
+}
+
+.body {
+	color: rgba(255,255,255,1.00);
+	background-image: url(../images/blueprint-2.jpg);
+	background-repeat: repeat;
+}
+.button {
+	font-size: 30px;
+	alignment-adjust: central;
+	box-shadow: 4px 4px rgba(255,255,255,0.28);
+	font-family: RollandinEmilie;
+	font-style: normal;
+	font-weight: 400;
+	background-position: 39% 53%;
+	background-size: 122% auto;
+	color: rgba(255,255,255,1.00);
+	border: thick dashed rgba(0,255,13,1.00);
+	background-color: rgba(12,54,97,1.00);
+	width: 30%;
+	margin-top: 14px;
+	-webkit-box-shadow: 4px 4px rgba(255,255,255,0.28);
+}
+.button:active {
+	transform: translate(4px);
+	-webkit-box-shadow: 1px 1px rgba(253,253,253,0.28);
+
+}
+.companyLogo {
+	-webkit-flex-basis: 40%;
+	font-family: RollandinEmilie;
+	font-size: 283%;
+	border: thick dashed rgba(0,255,13,1.00);
+	border-radius: 43px;
+	text-align: center;
+	line-height: 156%;
+	background-color: rgba(19,19,19,0.64);
+}
+.frontPic1 {
+	position: relative;
+	margin-bottom: -9px;
+	margin-top: -14%;
+	opacity: 0.62;
+	z-index: -1;
+	margin-right: -2px;
+	margin-left: -108px;
+	width: 48%;
+
+}
+
+.fußzeile{
+	padding-top: 90%;
+}
+.header {
+	display: -webkit-flex;
+	justify-content: space-between;
+	height: 82px;
+	background-color: rgba(19,19,19,0.64);
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	border: medium solid rgba(0,255,13,1.00);
+}
+
+.inputHeader {
+	-webkit-flex-basis: 40%;
+}
+
+.inputData {
+	text-align: center;
+	width: 57%;
+	color: rgba(255,255,255,1.00);
+	font-size: medium;
+	background-color: rgba(255,255,255,0.00);
+	margin-right: auto;
+	margin-left: auto;
+	font-weight: bold;
+	margin-bottom: 12px;
+	margin-top: 16px;
+}
+
+.inputfield {
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	color: rgba(255,246,246,1.00);
+	background-color: rgba(255,255,255,0.36);
+	text-align: center;
+}
+.inputfieldHeader {
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	color: rgba(255,246,246,1.00);
+	background-color: rgba(255,255,255,0.80);
+	text-align: center;
+	margin-left: 150px;
+	margin-top: 5px;
+}
+.lanepressureMap{
+-webkit-flex-basis: 40%;
+
+}
+.logo {
+	font-family: RollandinEmilie;
+	color: rgba(255,255,255,1.00);
+	font-size: 550%;
+	text-align: center;
+	text-shadow: 0px 0px;
+	text-indent: 0;
+}
+.matchupTable {
+	padding-left: 2%;
+	padding-right: 2%;
+	margin-left: 1%;
+	margin-right: 1%;
+	-webkit-flex-basis: 40%;
+
+}
+.matchSummoner{
+	border: 3px solid rgba(255,139,51,1.00);
+	background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-origin: padding-box;
+	background-position: 75% 0%;
+	padding-bottom: 5%;
+	padding-right: 0px;
+	padding-top: 15%;
+}
+.mid{
+	border-radius: 31px;
+	width: 70%;
+	margin-left: 15%;
+	-webkit-box-shadow: 0px 0px;
+	box-shadow: 0px 0px;
+	background-color: rgba(19,19,19,0.64);
+	font-weight: 300;
+	position: relative;
+	margin-top: 15%;
+	z-index: 3;
+	padding-bottom: 5px;
+	border: thick solid rgba(0,255,13,1.00);
+}
+.stats{
+	height: 0px;
+}
+.Summarize{
+	border: thin solid rgba(255,139,51,1.00);
+	padding-top: 30px;
+	padding-right: 5%;
+	padding-bottom: 30px;
+	padding-left: 5%;
+	
+}
+.summonerPreview{
+	text-align: left;
+	font-weight: 400;
+	color: rgba(255,255,255,1.00);
+	background-attachment: scroll;
+	border-radius: 100px;
+	/*background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg);*/
+	display: -webkit-flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	background-size: cover;
+	background-position: 0% 24%;
+	padding-top: 20px;
+	-webkit-filter: contrast(100%) brightness(100%);
+	background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg);
+	border: thick dashed rgba(0,255,13,1.00);
+	height: 300px;
+}
+.summonerdata{
+	z-index: 1;
+	background-color: rgba(19,19,19,0.64);
+	display: -webkit-flex;
+	height: 150px;
+	-webkit-flex-basis: 20%;
+	;
+	margin-left: 25px;
+	border: thick solid rgba(0,255,13,1.00);
+	margin-top: 75px;
+}
+.summonerdata2 {
+	z-index: 1;
+	-webkit-flex-basis: 25%;
+	margin-top: 75px;
+	margin-right: 25px;
+	background-image: url(url);
+	background-color: rgba(19,19,19,0.64);
+	height: 150px;
+}
+
+/*Tabs*/
+.ReiterButtons{
+	font-family: RollandinEmilie;
+	background-color: rgba(19,19,19,0.64);
+	cursor: pointer;
+	padding-top: 0.5%;
+	padding-left: 3%;
+	padding-bottom: 0.5%;
+	transition: 0.3s;
+	color: rgba(255,246,246,1.00);
+	font-size: xx-large;
+	font-weight: 500;
+	box-shadow: 4px 4px rgba(0,0,0,1.00);
+	padding-right: 3%;
+	font-style: normal;
+	border: thick dashed rgba(0,255,13,1.00);
+	margin-left: 0.5%;
+	-webkit-box-shadow: 4px 4px rgba(0,0,0,1.00);
+}
+.Reiter:active{
+	background-color: rgba(255,255,255,0.22);
+	transform: translate(4px);
+	-webkit-box-shadow: 1px 1px rgba(253,253,253,0.28);
+}
+.ReiterContent{
+	text-align: center;
+	background-color: rgba(54,54,54,0.50);
+	padding-top: 15px;
+	padding-right: 12px;
+	padding-left: 12px;
+	padding-bottom: 6px;
+	border: 4px solid rgba(0,255,13,1.00);
+	border-top: none;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 60px;
+	border-bottom-left-radius: 60px;
+	display: -webkit-flex;
+	justify-content: space-between;
+}
+.table{
+	border-style: none;
+	width: 100%;
+	padding-left: 30%;
+	padding-right: 30%;
+	
+}
+.tabs {
+	overflow: hidden;
+	background-color: rgba(19,19,19,0.64);
+	margin-top: 20px;
+	margin-left: 0px;
+	padding-top: 8px;
+	padding-right: 8px;
+	padding-bottom: 12px;
+	border: 3px solid rgba(0,255,13,1.00);
+	padding-left: 8px;
+}
+.vsSign{
+	
+}
+.summonerIcon {
+
+}
+.toppanel {
+	text-align: center;
+	font-style: normal;
+	font-weight: 400;
+	color: rgba(255,255,255,1.00);
+	font-size: medium;
+	text-shadow: 0px 0px 0;
+	font-variant: normal;
+	border-radius: 0px;
+	word-spacing: 76%;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.topLinks {
+}
+
+@font-face {
+	font-family: 'RollandinEmilie';
+	src: url('RollandinEmilie/RollandinEmilie.ttf') format('truetype');
+}
+.summonerIcon {
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	margin-top: 24px;
+	margin-right: 12px;
+	margin-bottom: 12px;
+	margin-left: 12px;
+	width: 100px;
+	height: 100px;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.static_data.constant.ChampionListTags"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.static_data.methods.GetDataVersions"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.spectator.dto.CurrentGameInfo"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.spectator.dto.BannedChampion"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.spectator.dto.CurrentGameParticipant"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.ApiConfig"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.RiotApi"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.RiotApiException"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.league.dto.LeagueList"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.match.dto.MatchList"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.match.methods.GetMatchListByAccountId"/>
+<fullyQualifiedTypeName name="java.util.regex.MatchResult"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.match.dto.MatchReference"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.match.dto.ParticipantStats"/>
+<fullyQualifiedTypeName name="net.rithms.riot.api.endpoints.static_data.dto.Champion"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.jni.Time"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.jni.File"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+</qualifiedTypeNameHistroy>

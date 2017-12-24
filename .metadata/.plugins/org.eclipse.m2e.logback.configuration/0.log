@@ -1,0 +1,10 @@
+2017-08-26 15:05:29,721 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-08-26 15:17:58,849 [Worker-18] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: C:\Users\Dreifingerjoey\Desktop\LeagueOfStalk Java\.metadata\com.genuitec.eclipse.webclipse.livepreview\0\store
+2017-08-26 15:17:58,901 [Worker-18] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: C:\Users\Dreifingerjoey\Desktop\LeagueOfStalk Java\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store
+2017-08-26 15:28:39,061 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-08-26 15:29:25,920 [Worker-12] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: C:\Users\Dreifingerjoey\Desktop\LeagueOfStalk Java\.metadata\com.genuitec.eclipse.webclipse.livepreview\0\store
+2017-08-26 15:30:47,651 [Worker-2] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: C:\Users\Dreifingerjoey\Desktop\LeagueOfStalk Java\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store
+2017-08-26 15:35:17,116 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-08-26 15:41:40,836 [Worker-6] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: C:\Users\Dreifingerjoey\Desktop\LeagueOfStalk Java\.metadata\com.genuitec.eclipse.webclipse.livepreview\0\store
+2017-08-26 15:53:22,624 [Worker-27] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: C:\Users\Dreifingerjoey\Desktop\LeagueOfStalk Java\.metadata\com.genuitec.eclipse.webclipse.livepreview\1\store
+2017-08-26 20:57:14,885 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

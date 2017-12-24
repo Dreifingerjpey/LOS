@@ -1,0 +1,365 @@
+package Logic;
+import net.rithms.riot.api.ApiConfig;
+import net.rithms.riot.api.RiotApi;
+import net.rithms.riot.api.RiotApiException;
+import net.rithms.riot.api.endpoints.league.dto.LeagueList;
+import net.rithms.riot.api.endpoints.league.dto.LeaguePosition;
+import net.rithms.riot.api.endpoints.match.dto.Match;
+import net.rithms.riot.api.endpoints.match.dto.MatchList;
+import net.rithms.riot.api.endpoints.match.dto.MatchReference;
+import net.rithms.riot.api.endpoints.match.dto.Participant;
+import net.rithms.riot.api.endpoints.match.dto.ParticipantStats;
+import net.rithms.riot.api.endpoints.match.dto.ParticipantTimeline;
+import net.rithms.riot.api.endpoints.spectator.dto.BannedChampion;
+import net.rithms.riot.api.endpoints.spectator.dto.CurrentGameInfo;
+import net.rithms.riot.api.endpoints.spectator.dto.CurrentGameParticipant;
+import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
+import net.rithms.riot.constant.Platform;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Set;
+import java.util.Timer;
+import java.util.regex.MatchResult;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/SummonerLookup")
+public class Logic extends HttpServlet {
+	//SETTINGS
+	ApplicationSettings AppConfig = new ApplicationSettings(1L,"RGAPI-56c4f155-7bb8-4cbc-8d38-b549c6a8652a",Platform.EUW);
+	public boolean ingame = false;
+	
+	public Logic() {
+	        super();
+	    }
+	//Setting Struct
+	class ApplicationSettings{
+		
+		private  long serialVersionUID;
+		private String apiKey;
+		String ddragonVers ="";
+		net.rithms.riot.constant.Platform platform;
+		
+		
+	public ApplicationSettings(long uid,String k,net.rithms.riot.constant.Platform p){
+			this.serialVersionUID = uid;
+			this.apiKey = k;
+			this.platform = p;
+	}
+	
+	
+
+		
+	public String getKey(){
+			return this.apiKey;
+		}
+	}
+	//STRUCTS for presented Data
+	class SummonerStruct{
+		//summonerdata
+		long id;
+		String name;
+		int lvl;
+		String icon;
+		//league data
+			//Solo
+			String rankSoloQ;
+			String sololeaguePoints;
+			String soloKda;
+			//Flex
+			String rankFlexQ;
+			String flexleaguePoints;
+			String flexKda;
+		// league data MiniSeries
+		int sWins;
+		int sLoose;
+		int fWins;
+		int fLoose;
+		int rankedWins;
+		int rankedLosses;
+		//calculated Data ( not implemented yet )
+		String SoloQPlace;
+		
+		public SummonerStruct(Summoner s, List<LeagueList> l){
+			
+			this.id = s.getId();
+			this.name = s.getName();
+			this.lvl =s.getSummonerLevel();
+			this.icon = "http://ddragon.leagueoflegends.com/cdn/"+AppConfig.ddragonVers+"/img/profileicon/"+s.getProfileIconId()+".png";;
+			this.rankSoloQ= l.get(0).getTier()+" "+l.get(0).getEntryBySummonerId(this.id).getRank();;
+			this.sololeaguePoints= ""+l.get(0).getEntryBySummonerId(this.id).getLeaguePoints();;
+			this.soloKda= "not implemented";
+			this.rankFlexQ= l.get(1).getTier()+" "+l.get(0).getEntryBySummonerId(this.id).getRank();;
+			this.flexleaguePoints= ""+l.get(1).getEntryBySummonerId(this.id).getLeaguePoints();;
+			this.flexKda= "not implemented";;
+			this.sWins= l.get(0).getEntryBySummonerId(this.id).getWins();;
+			this.sLoose= l.get(0).getEntryBySummonerId(this.id).getLosses();;
+			this.fWins= l.get(1).getEntryBySummonerId(this.id).getWins();;
+			this.fLoose= l.get(1).getEntryBySummonerId(this.id).getLosses();;
+			this.rankedWins= this.sWins+this.fWins;
+			this.rankedLosses= this.sLoose +this.fLoose;
+			
+			this.SoloQPlace ="not implemented";
+		}
+		public SummonerStruct(SummonerStruct s){
+			this.id = s.id;
+			this.name = s.name;
+			this.lvl =s.lvl;
+			this.icon = s.icon;
+			this.rankSoloQ= s.rankSoloQ;
+			this.sololeaguePoints= s.sololeaguePoints;
+			this.soloKda= s.soloKda;
+			this.rankFlexQ= s.rankFlexQ;
+			this.flexleaguePoints= s.flexleaguePoints;
+			this.flexKda= s.flexKda;
+			this.sWins= s.sWins;
+			this.sLoose= s.sLoose;
+			this.fWins= s.fWins;
+			this.fLoose= s.fLoose;
+			this.rankedWins= s.rankedWins;
+			this.rankedLosses= s.rankedLosses;
+			this.SoloQPlace =s.SoloQPlace;;
+		}
+		
+		
+	}
+	class IngameSummonerStruct extends SummonerStruct{
+
+		int champion;
+		
+		public IngameSummonerStruct(SummonerStruct s,CurrentGameParticipant p) {
+			super(s);
+			this.champion=p.getChampionId();
+			
+		}
+		
+	}
+	class CurrentGameStruct{
+		
+		long gameID;
+		String gameMode;
+		int mapId;
+		String gameType;
+		List<BannedChampion> bannedChamps;
+		ArrayList<IngameSummonerStruct> participants= new ArrayList<IngameSummonerStruct>();
+		long gameLength;
+		int gameQueueConfigId;
+
+		public CurrentGameStruct(CurrentGameInfo gameInfo, ArrayList<IngameSummonerStruct> l){
+			
+			this.gameID = gameInfo.getGameId();;
+			this.gameMode=gameInfo.getGameMode();;
+			this.mapId=gameInfo.getMapId();
+			this.participants= l;
+			this.bannedChamps=gameInfo.getBannedChampions();
+			this.participants=l;
+			this.gameLength=gameInfo.getGameLength();;
+			this.gameQueueConfigId=gameInfo.getGameQueueConfigId();;
+		}
+		
+
+	}
+	//not finished yet
+	class GameStat{
+		Participant player;
+		
+		int championID;
+		boolean win;
+		String lane;
+		String role;
+		
+		//stats
+		int kills;
+		int deaths;
+		int assists;
+		
+		int gold;
+		int wards;
+	    long visionScore;
+	    long totalHeal;
+	    long totalDmg;
+	    long buildingDmg;
+	    
+		int doubleKill;
+		int tripleKill;
+		int quadraKill;
+		int pentaKill;
+		
+		
+		public GameStat(Participant p, ParticipantTimeline pt){
+			
+			ParticipantStats stats = player.getStats();
+			this.championID = p.getChampionId();
+			this.win=stats.isWin();
+			this.lane=pt.getLane();
+			this.role=pt.getRole();
+			
+			this.kills=stats.getKills();
+			this.deaths=stats.getDeaths();
+			this.assists=stats.getAssists();
+			
+			this.gold=stats.getGoldEarned();
+			this.wards=stats.getWardsPlaced();
+			this.visionScore = stats.getVisionScore();
+			this.totalHeal = stats.getTotalHeal();
+			this.totalDmg = stats.getTotalDamageDealt();
+			this.buildingDmg = stats.getDamageDealtToObjectives();
+			
+			this.doubleKill =  stats.getDoubleKills();
+			this.tripleKill = stats.getTripleKills();
+			this.quadraKill = stats.getQuadraKills();
+			this.pentaKill = stats.getPentaKills();
+			
+		}
+		
+	}
+	class allMatchesStruct{
+	
+		List<GameStat> allMatches;
+
+		int gameCount=0;
+		int kills=0;
+		int deaths=0;
+		int assists=0;
+		int dmgQuotient=0;
+		public allMatchesStruct(List<GameStat> matches){
+
+			this.allMatches = matches;
+			
+			for( GameStat g : matches){
+				++gameCount;
+				this.kills+=g.kills;
+				this.deaths+=g.deaths;
+				this.assists+=g.assists;
+				this.dmgQuotient+=g.totalDmg;
+			}
+			this.dmgQuotient/=matches.size();
+		}
+		
+	}
+	//MAIN
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+				ApiConfig config = new ApiConfig().setKey(AppConfig.getKey());
+				RiotApi api = new RiotApi(config);
+				String name = request.getParameter("summoner");
+				response.sendRedirect("GAME OR MATCHLIST ERROR")
+			//GET ddragon
+			try{
+				AppConfig.ddragonVers = api.getDataVersions(AppConfig.platform).get(0);			 //hole aktuelle ddragon version
+				response.sendRedirect(AppConfig.ddragonVers);
+				request.getRequestDispatcher("SummonerLookUp.jsp").forward(request, response);
+			}catch(Exception e){
+				return;
+				}
+			//GET summonerdata & game
+			try{
+				//SummonerStruct mainSum =getSummonerData(api,request,name,AppConfig.platform); 	 //sammle mainSummoner data
+				//setSumData(request,mainSum);
+				request.getRequestDispatcher("SummonerLookUp.jsp").forward(request, response);
+				try{
+					//CurrentGameStruct currentGame = getCurrentGameData(api,request,mainSum.id,AppConfig.platform); // get current match
+					//setCurrentGame(request,currentGame);
+					//allMatchesStruct matches= getAllMatches(api,request,mainSum.id,AppConfig.platform);
+					//setAllMatchesData(request,matches);
+				}catch(Exception e){
+					
+					response.sendRedirect("GAME OR MATCHLIST ERROR");
+					return;
+				}
+			}catch(Exception e){
+				response.sendRedirect("SUMMONER ERROR");
+				return;
+				}
+
+				request.getRequestDispatcher("SummonerLookUp.jsp").forward(request, response);  //weiterleitung zur lookup-seite wenn fertig
+				
+				//response.sendRedirect(request.getLocalName());
+				//response.sendRedirect("index.jsp");
+			
+	
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	//REQUEST DATAS
+	private SummonerStruct getSummonerData(RiotApi a,HttpServletRequest r, String name,Platform p ) throws RiotApiException {
+		
+		Summoner summoner = a.getSummonerByName(p, name);
+		List<LeagueList> league = a.getLeagueBySummonerId(p, summoner.getId()); // hilfsobject
+
+	return new SummonerStruct(summoner,league);
+	}
+	private IngameSummonerStruct getIngameSummonerData(RiotApi a,HttpServletRequest r, CurrentGameParticipant c,Platform p ) throws RiotApiException {
+		
+
+	return new IngameSummonerStruct(getSummonerData(a,r,c.getSummonerName(),p),c);
+	}
+	private CurrentGameStruct getCurrentGameData(RiotApi a,HttpServletRequest r, long summonerId,Platform p ) throws RiotApiException{
+		
+		CurrentGameInfo gameInfo = a.getActiveGameBySummoner(p, summonerId);
+		
+		if(gameInfo==null){
+			throw new RiotApiException(2,"no active game");
+			
+		}
+		
+		ArrayList<IngameSummonerStruct> part = new ArrayList<IngameSummonerStruct>();		
+		
+		for(int i=0;i<gameInfo.getParticipants().size();++i){
+			part.add(getIngameSummonerData(a,r,gameInfo.getParticipants().get(i),p));
+		}
+		
+		return new CurrentGameStruct(gameInfo,part);
+	}	
+	private allMatchesStruct getAllMatches(RiotApi a,HttpServletRequest r, long summonerId,Platform p ) throws RiotApiException{
+		
+		MatchList matches = a.getMatchListByAccountId(p, summonerId);
+		List<GameStat> gamelist = new ArrayList<GameStat>();
+		
+		for(MatchReference match : matches.getMatches()){
+			Match m =a.getMatch(p, match.getGameId());
+			Participant part = m.getParticipantByParticipantId(m.getParticipantByAccountId(summonerId).getParticipantId());
+			ParticipantTimeline pt = m.getParticipantByAccountId(summonerId).getTimeline();
+			gamelist.add(new GameStat(part,pt));
+			
+		}
+		
+		return new allMatchesStruct(gamelist);
+	}
+	
+	//SET SPECIFIC DATAS FROM STRUCT
+	private void setSumData(HttpServletRequest r,SummonerStruct s){
+				//set Data für Lookup
+				r.setAttribute("sIcon",s.icon );			
+				r.setAttribute("name", s.name);
+				r.setAttribute("lvl", s.lvl);
+				r.setAttribute("devS",s.rankSoloQ+" "+s.sololeaguePoints );
+				r.setAttribute("devF",s.rankFlexQ+" "+s.flexleaguePoints );
+				r.setAttribute("rank",s.SoloQPlace ); 
+
+		
+				//r.setAttribute("bestChampPic", "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_1.jpg");//need rework
+	}
+	private void setCurrentGame(HttpServletRequest r,CurrentGameStruct g){
+		
+
+		//set data for every participant
+		for(int i=0;i<g.participants.size();++i){
+			SummonerStruct s = g.participants.get(i);
+			
+			r.setAttribute("elo"+i, s.rankSoloQ);
+			r.setAttribute("kda"+i, s.soloKda);
+		}
+	}
+
+}

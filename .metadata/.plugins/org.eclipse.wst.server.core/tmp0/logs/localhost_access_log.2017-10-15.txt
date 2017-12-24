@@ -1,0 +1,17 @@
+127.0.0.1 - - [15/Oct/2017:12:01:01 +0200] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:02 +0200] "GET /LeagueOfStalkJava/index.html HTTP/1.1" 200 1601
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:02 +0200] "GET /LeagueOfStalkJava/assets/css/LoSStyleSheet.css HTTP/1.1" 200 5668
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:02 +0200] "GET /LeagueOfStalkJava/assets/images/skizze1.png HTTP/1.1" 200 138558
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:02 +0200] "GET /LeagueOfStalkJava/assets/css/RollandinEmilie/RollandinEmilie.ttf HTTP/1.1" 200 221628
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:02 +0200] "GET /LeagueOfStalkJava/assets/css/FONTS/RollandinEmilie.ttf HTTP/1.1" 404 1124
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:02 +0200] "GET /LeagueOfStalkJava/assets/images/blueprint-2.jpg HTTP/1.1" 200 15504
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:07 +0200] "GET /LeagueOfStalkJava/index.html HTTP/1.1" 200 1601
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:07 +0200] "GET /LeagueOfStalkJava/assets/css/LoSStyleSheet.css HTTP/1.1" 200 5668
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:07 +0200] "GET /LeagueOfStalkJava/assets/images/skizze1.png HTTP/1.1" 200 138558
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:07 +0200] "GET /LeagueOfStalkJava/assets/images/blueprint-2.jpg HTTP/1.1" 200 15504
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:07 +0200] "GET /LeagueOfStalkJava/assets/css/RollandinEmilie/RollandinEmilie.ttf HTTP/1.1" 200 221628
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:08 +0200] "GET /favicon.ico HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:45 +0200] "GET /LeagueOfStalkJava/SummonerLookup?summoner=Dreifingerjoey HTTP/1.1" 200 5727
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:45 +0200] "GET /LeagueOfStalkJava/assets/css/LoSStyleSheet.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:45 +0200] "GET /LeagueOfStalkJava/assets/images/testSummonerIcon.png HTTP/1.1" 200 29132
+0:0:0:0:0:0:0:1 - - [15/Oct/2017:12:01:45 +0200] "GET /LeagueOfStalkJava/assets/css/url HTTP/1.1" 404 1102

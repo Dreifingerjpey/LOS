@@ -1,0 +1,2 @@
+INDEX VERSION 1.3+C:\Users\Dreifingerjoey\Desktop\LeagueOfStalk Java\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3649080189.index
